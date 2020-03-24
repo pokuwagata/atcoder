@@ -26,6 +26,27 @@
 - 合計を保持する際には型に注意する。long int 2^31 -1, long long 2^63 -1
 - 大抵は long int と int に差はなく 4byte(32bit)（処理系依存ではある）
   - <https://www.quora.com/Whats-the-difference-between-int-type-and-long-int-type-in-C++>
+- 偶数かつ偶数=true || 奇数かつ奇数=true 　<=> 和が偶数 を利用してこういう模様を作れる
+
+```
+4 4
+#.#.
+.#.#
+#.#.
+.#.#
+```
+
+- do{} while(); は最初に1度処理を実行する
+- for文で最後のループだけ別の処理をしたい場合は、手前までループして次の処理でif文にしてしまうのもあり
+  - 例) '1 2 3'のように最後だけ右にスペースをつけない処理等
+  - もしくは`cout <<" "<< n[num-i-1]`
+- `if(!true)`書ける
+- `#include<map>` `map<char,int>ll;`でmap型使える
+- サイズ固定の多次元配列の初期化 `int arr[10][20] = {0};`, `memset(arr, 0, sizeof arr);`
+  - <https://stackoverflow.com/questions/23039134/how-to-use-memset-function-in-two-dimensional-array-for-initialization-of-member>
+- `scanf("%s %d",mark,&tmp);` はアドレス演算子の返す型がポインタで、配列は式の中でポインタに読み替えられるのでOK
+- 代入文は並べられる`S[i] = H[i] = C[i] = D[i] = 0;`
+- 
 
 ## 3/21 AGC
 
@@ -35,3 +56,7 @@
 - 多次元配列の長さの求め方
 - grid 系問題を解いたことない
 - A, B 問題を読んだが、問題が抽象化されていて正しく意図を理解できない、
+
+## ABS
+
+- `3つのマスからなるマス目` というとき、マス目という言葉はマスの集合を指すらしい
