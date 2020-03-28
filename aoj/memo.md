@@ -46,7 +46,24 @@
   - <https://stackoverflow.com/questions/23039134/how-to-use-memset-function-in-two-dimensional-array-for-initialization-of-member>
 - `scanf("%s %d",mark,&tmp);` はアドレス演算子の返す型がポインタで、配列は式の中でポインタに読み替えられるのでOK
 - 代入文は並べられる`S[i] = H[i] = C[i] = D[i] = 0;`
-- 
+- `vector<vector<int>>`の>>はc++11以降じゃないとエラーになる。g++はオプションを指定することでコンパイル時のバージョンサポートを
+変更できる
+  - <https://www.neuralsparrow.com/entry/2017/04/12/002201>
+- `1 2 3`のような入力はcin >> で受けたほうが楽、`scanf`だと無理？
+
+```
+timeout: the monitored command dumped core 0.00user 0.00system 0:00.00elapsed 66%CPU (0avgtext+0avgdata 3184maxresident)k 0inputs+16outputs (0major+236minor)pagefaults 0swaps
+```
+
+- vectorを使うと↑のエラーが出るみたい。できるだけ配列を使ったほうがいい
+
+- `int a[n][m] = {0};`動的配列の初期化は無理ぽい
+- 配列は初期化せずに加算等を行うと意図しない結果になる
+- ITP1_6_Dはなぜ不正解なのかよく分からない...
+- `while`の中で`scanf`と`printf`すると、実行時は1入力に対して出力後に次の入力を待つように見えるが実際には入力を全て受けてから全て出力するので問題ない
+- `scanf("%d")`のループで`1 2 3`を受け取ることは可能
+- 入力のmatrixに対して加工・行列追加等を行って出力する場合は、読み込みと出力を分離したほうがすっきりするかも（別の二次元配列を出力用に用意する）
+  - ITP1-7
 
 ## 3/21 AGC
 
