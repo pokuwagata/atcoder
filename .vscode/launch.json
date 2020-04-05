@@ -4,6 +4,28 @@
   // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    // https://kamiyaowl.github.io/blog/vscode_lldb/
+    {
+      "name": "(lldb) Launch",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "terminal": "integrated",
+      "preLaunchTask": "build before debug"
+    },
+    {
+      "name": "(lldb) Launch with stdin(./input.txt)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "terminal": "integrated",
+      "stdio": ["${fileDirname}/input.txt", null, null],
+      "preLaunchTask": "build before debug"
+    },
     {
       "name": "g++ build and debug active file",
       "type": "cppdbg",
