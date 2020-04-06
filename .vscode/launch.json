@@ -13,7 +13,7 @@
       "args": [],
       "cwd": "${fileDirname}",
       "terminal": "integrated",
-      "preLaunchTask": "build before debug"
+      "preLaunchTask": "gcc build before debug"
     },
     {
       "name": "(lldb) Launch with stdin(./input.txt)",
@@ -24,7 +24,7 @@
       "cwd": "${fileDirname}",
       "terminal": "integrated",
       "stdio": ["${fileDirname}/input.txt", null, null],
-      "preLaunchTask": "build before debug"
+      "preLaunchTask": "gcc build before debug"
     },
     {
       "name": "g++ build and debug active file",

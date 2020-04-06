@@ -34,6 +34,22 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "gcc build before debug",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++14",
+        "-g",
+        "${fileDirname}/*.cpp",
+        "-o",
+        "${fileDirname}/a.out"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }
