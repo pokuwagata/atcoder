@@ -5,12 +5,15 @@ using namespace std;
 using ll = long long;
 
 int main() {
-  int k, n;
-  cin >> k >> n;
-  vector<int> a(n);
-  rep(i, n) cin >> a[i];
-  ll d1 = a[n-1] - a[n-2];
-  ll d2 = a[n-2] + k - a[n-1];
-  cout << min(d1, d2) << endl;
+  int n, m;
+  ll sum=0;
+  cin >> n >> m;
+  rep(i, m) {
+    int a;
+    cin >> a;
+    sum += a;
+  }
+  if(n < sum) cout << -1 << endl;
+  if(n >= sum) cout << n-sum << endl;
   return 0;
 }

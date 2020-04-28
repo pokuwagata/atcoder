@@ -5,12 +5,8 @@ using namespace std;
 using ll = long long;
 
 int main() {
-  int k, n;
-  cin >> k >> n;
-  vector<int> a(n);
-  rep(i, n) cin >> a[i];
-  ll d1 = a[n-1] - a[n-2];
-  ll d2 = a[n-2] + k - a[n-1];
-  cout << min(d1, d2) << endl;
+  string s;
+  cin >> s;
+  cout << ((s[0] == s[1] && s[1] == s[2] && s[0] == s[2]) ? "No" : "Yes") << endl;
   return 0;
 }

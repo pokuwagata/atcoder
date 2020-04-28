@@ -1,23 +1,12 @@
-#include <stdio.h>
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
+#define rep(i,n) for(int i=0; i < (n); i++)
+#define lower(s) transform(s.begin(), s.end(), s.begin(), ::tolower)
 using namespace std;
+using ll = long long;
 
 int main() {
-  long long n, k;
-  long long ans;
-  scanf("%lld %lld", &n, &k);
-  // if (n >= k) {
-  //   if (n%k == 0) {
-  //     min = 0;
-  //   } else {
-    long long t = n % k;
-    ans = min(t, k-t);
-      // ans = - (n % k - k) >= n % k ? n % k : - (n % k -k); 
-  //   }
-  // } else {
-  //     min = - (n - k) >= n ? n : - (n - k); 
-  // }
-  printf("%lld\n", ans);
+  ll n, k;
+  cin >> n >> k;
+  cout << min(abs(n%k - k), n%k);
   return 0;
 }
