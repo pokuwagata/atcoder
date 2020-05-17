@@ -7,28 +7,27 @@ using ll = long long;
 int main() {
   int k;
   cin >> k;
-  // vector<int> ans(k);
-  int c = 0;
-  for(ll i=1; ; i++)
-  {
-    string sl = to_string(i);
-    bool ru = true;
-    for(int j=0; j < sl.length() -1; j++) {
-      if(abs(sl[j+1] - sl[j]) > 1) {
-        ru = false;
-        break;
-      }
+
+  vector<int>a;
+  rep(i,9) a.push_back(i+1);
+
+  while(1) {
+    if(a.size() >= k) {
+      rep(i, a.size()) cout << a[i] << endl;
+      cout << a[k-1] << endl;
+      return 0;
     }
-    
-    if(ru) {
-      // ans[c] = r;
-      c++;
-      if(c == k) {
-        cout << i << endl;
-        break;
+    k-= a.size();
+
+    vector<int> old;
+    swap(old, a);
+    for(ll v : old) {
+      for(int i=-1; i<=1; i++) {
+        int v2 = v % 10 + i;
+        int add = v*10 + v2;
+        if(v2 >=0 && v2 <=9) a.push_back(add);
       }
     }
   }
-  
   return 0;
 }
