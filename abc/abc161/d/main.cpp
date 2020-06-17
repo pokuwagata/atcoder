@@ -3,31 +3,34 @@
 #define lower(s) transform(s.begin(), s.end(), s.begin(), ::tolower)
 using namespace std;
 using ll = long long;
+int INF = 1001001001;
 
 int main() {
-  int k;
-  cin >> k;
-
-  vector<int>a;
-  rep(i,9) a.push_back(i+1);
-
-  while(1) {
-    if(a.size() >= k) {
-      rep(i, a.size()) cout << a[i] << endl;
-      cout << a[k-1] << endl;
-      return 0;
+  int n, x, y;
+  cin >> n >> x >> y;
+  x--; y--;
+  vector<int> ans(n);
+  rep(i,n) {
+    queue<int> q;
+    vector<int> d(n, INF);
+    auto push = [&](int v, int dist) {
+      if(d[v] != INF) return;
+      d[v] = dist;
+      q.push(v);
+    };
+    push(i, 0);
+    while(!q.empty()) {
+      int v = q.front(); q.pop();
+      if(v + 1 < n) push(v+1, d[v] + 1);
+      if(v - 1 >= 0) push(v-1, d[v] +1);
+      if(v == x) push(y, d[v] + 1);
+      if(v == y) push(x, d[v] + 1);
     }
-    k-= a.size();
-
-    vector<int> old;
-    swap(old, a);
-    for(ll v : old) {
-      for(int i=-1; i<=1; i++) {
-        int v2 = v % 10 + i;
-        int add = v*10 + v2;
-        if(v2 >=0 && v2 <=9) a.push_back(add);
-      }
-    }
+    rep(i,n)ans[d[i]]++;
+  }
+  rep(i,n) ans[i] /= 2;
+  for(int i=1; i<n; i++) {
+    cout << ans[i] << endl;
   }
   return 0;
 }

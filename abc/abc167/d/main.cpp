@@ -3,30 +3,38 @@
 #define lower(s) transform(s.begin(), s.end(), s.begin(), ::tolower)
 using namespace std;
 using ll = long long;
+int INF = 1001001001;
 
-const int D = 60;
-const int MAX_N = 200000; 
-int to[D][MAX_N];
+// vector<int> d[60]; // segmentation fault
+int d[60][212345]; 
 
 int main() {
   int n; ll k;
   cin >> n >> k;
   rep(i, n) {
-    cin >> to[0][i];
-    to[0][i]--;
-  }
-  rep(i, D-1) {
-    rep(j, n) to[i+1][j] = to[i][to[i][j]];
+    int a;
+    cin >> a;
+    a--;
+    d[0][i] = a;
   }
 
-  int v = 0;
-  for(int i = D-1; i >=0; i--) {
-    ll l = 1ll << i;
-    if(l <= k) {
-      v = to[i][v];
-      k -= l;
+  rep(i, 60) {
+    if (i==0) continue;
+    rep(j, n) {
+      d[i][j] = d[i-1][d[i-1][j]];
+      // d[i+1][j] = d[i][d[i][j]];
     }
   }
-  cout << v + 1 << endl;
+
+  int v =0;
+  for(int i=60; i>=0; i--) {
+    ll l = 1ll << i;
+    if(l<=k) {
+      v = d[i][v];
+      k-=l;
+    }
+  }
+  cout << v+1 << endl;
+
   return 0;
 }
