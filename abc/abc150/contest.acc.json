@@ -25,7 +25,10 @@
       "id": "abc150_c",
       "label": "C",
       "title": "Count Order",
-      "url": "https://atcoder.jp/contests/abc150/tasks/abc150_c"
+      "url": "https://atcoder.jp/contests/abc150/tasks/abc150_c",
+      "directory": {
+        "path": "c"
+      }
     },
     {
       "id": "abc150_d",

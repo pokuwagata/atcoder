@@ -6,25 +6,14 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  int n;
   string s;
-  cin >> n >> s;
-  if(s.find("ABC") == string::npos) {
-    cout << 0 << endl;
-    return 0;
-  }
-
+  cin >> s;
+  string rs = s;
+  reverse(rs.begin(), rs.end());
   int ans = 0;
-  while (1)
-  {
-    int start = s.find("ABC");
-    int end = s.size();
-    if(start == string::npos) break;
-    s = s.substr(start+3, end);
-    cout << s << endl;
-    ans++;
+  for(int i=0; i * 2 < s.size(); i++) {
+    if(s[i] != rs[i]) ans++;
   }
   cout << ans << endl;
-  
   return 0;
 }
