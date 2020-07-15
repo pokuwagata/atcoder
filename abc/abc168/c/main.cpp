@@ -3,19 +3,13 @@
 #define lower(s) transform(s.begin(), s.end(), s.begin(), ::tolower)
 using namespace std;
 using ll = long long;
-
-const double pi = 3.141592653589793;
+int INF = 1001001001;
 
 int main() {
-  double a, b, h, m;
+  int a, b, h, m;
   cin >> a >> b >> h >> m;
-  double a_r = h / 6.0;
-  double b_r = m / 30.0;
-  // double cosx = cos((a_r - b_r)*pi);
-  double cosx = cos((5*h - m)*pi/30);
-  if(a_r < b_r) cosx = -1.0 * cosx;
-
-  double c2 = pow(a,2) + pow(b,2) -2.0 * a * b * cosx;
-  cout << sqrt(c2) << endl;
+  double pi = acos(-1);
+  double ans = sqrt(a*a + b*b -2 * a * b * cos((60*h + m) * pi * 11 / 360));
+  printf("%.10f",ans);
   return 0;
 }

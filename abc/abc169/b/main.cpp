@@ -4,27 +4,26 @@
 using namespace std;
 using ll = long long;
 int INF = 1001001001;
-ll mx = 1e18;
 
 int main() {
   int n;
   cin >> n;
-  bool ng = false;
+  vector<ll> a(n);
+  rep(i, n) cin >> a[i];
+  sort(a.begin(), a.end());
   ll ans = 1;
+  ll mx = 1e18;
   rep(i, n) {
-    ll a;
-    cin >> a;
-    if(a==0) {
-      cout << 0 << endl;
-      return 0;
+    if(a[i] == 0) {
+      ans = 0;
+      break;
     }
-    if(ng || mx/ans <a) {
-      ng = true;
+    if(ans > mx / a[i]) {
+      ans = -1;
+      break;
     }
-    ans *= a;
+    ans *= a[i];
   }
-  if(ng) {cout << -1 << endl;}
-  else {cout << ans << endl;}
-
+  cout << ans << endl;
   return 0;
 }

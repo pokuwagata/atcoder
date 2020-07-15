@@ -9,6 +9,13 @@ int main() {
   ll a;
   double b;
   cin >> a >> b;
-  cout << (a * (ll)(b * 100 + 0.5)) / 100 << endl;
+  ll ib = (b * 100+0.5);
+  // ll ib = (b * 100);
+  cout << ib << endl;
+  a *= ib;
+  a /= 100;
+  // ll temp = a * (b * 100+0.5);
+  // ll ans = temp / 100;
+  cout << a << endl;
   return 0;
 }

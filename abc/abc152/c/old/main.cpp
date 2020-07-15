@@ -6,9 +6,16 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  ll a;
-  double b;
-  cin >> a >> b;
-  cout << (a * (ll)(b * 100 + 0.5)) / 100 << endl;
+  int n;
+  cin >> n;
+  vector<int> p(n);
+  rep(i, n) cin >> p[i];
+  int ans = 0;
+  int cur = 1e9;
+  rep(i, n) {
+    cur = min(cur, p[i]);
+    if(cur == p[i]) ans++;
+  }
+  cout << ans << endl;
   return 0;
 }

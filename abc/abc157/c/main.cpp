@@ -4,36 +4,32 @@
 using namespace std;
 using ll = long long;
 int INF = 1001001001;
-using P = pair<int, int>;
 
 int main() {
   int n, m;
   cin >> n >> m;
-  vector<P> p(m);
+  vector<int>mp(m);
   rep(i, m) {
-    cin >> p[i].first >> p[i].second;
-  }
-  rep(x, 1000) {
-    int dx = x / 10;
-    vector<int> d(1, x%10);
-    // int keta = 1;
-    while(dx) {
-      // keta++;
-      d.push_back(dx%10);
-      dx /= 10;
+    int s, c;
+    cin >> s >> c;
+    s--;
+    if(mp[s] != 0 && mp[s] != c) {
+      cout << -1 << endl;
+      return 0;
     }
-    // if(keta != n) continue;
-    reverse(d.begin(), d.end());
+    mp[s] = c;
+  }
+  rep(i, 1000) {
+    string s = to_string(i);
     bool ok = true;
-    rep(i, m) {
-      if(d[p[i].first-1] != p[i].second) ok = false;
+    rep(j, s.size()) {
+      if(mp[j] == 0) continue;
+      if(int(s[j]) != mp[j]) ok = false;
     }
     if(ok) {
-      cout << x << endl;
+      cout << i << endl;
       return 0;
     }
   }
-  cout << -1 << endl;
-
   return 0;
 }

@@ -6,9 +6,20 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  ll a;
-  double b;
-  cin >> a >> b;
-  cout << (a * (ll)(b * 100 + 0.5)) / 100 << endl;
+  int n;
+  cin >> n;
+  map<int, int> m;
+  rep(i, n) {
+    int a;
+    cin >> a;
+    m[a]++;
+  }
+  for(auto p : m) {
+    if(p.second > 1) {
+      cout << "NO" << endl;
+      return 0;
+    }
+  }
+  cout << "YES"<< endl;
   return 0;
 }

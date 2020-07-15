@@ -8,18 +8,11 @@ int INF = 1001001001;
 int main() {
   int n;
   cin >> n;
-  map<int, int> m;
-  rep(i, n) {
-    int a;
-    cin >> a;
-    m[a]++;
-  }
-  for(auto p : m) {
-    if(p.second > 1) {
-      cout << "NO" << endl;
-      return 0;
-    }
-  }
-  cout << "YES"<< endl;
+  vector<int> a(n);
+  rep(i, n) cin >> a[i];
+  sort(a.begin(), a.end());
+  a.erase(unique(a.begin(), a.end()), a.end());
+  if(a.size() == n) cout << "YES" << endl;
+  else cout << "NO" << endl;
   return 0;
 }

@@ -10,15 +10,11 @@ int main() {
   cin >> n >> k;
   vector<int> h(n);
   rep(i, n) cin >> h[i];
-  if(n <= k) cout << 0 << endl;
-  else {
-    sort(h.begin(), h.end());
-    rep(i, k) {
-      h.pop_back();
-    }
-    ll ans = 0;
-    rep(i, h.size()) ans+=h[i];
-    cout << ans << endl;
-  }
+  sort(h.begin(), h.end(), greater <>());
+  k = min(k,n);
+  h.erase(h.begin(), h.begin() + k);
+  ll ans = 0;
+  rep(i, h.size()) ans+=h[i];
+  cout << ans << endl;
   return 0;
 }

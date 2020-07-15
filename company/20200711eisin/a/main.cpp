@@ -6,9 +6,12 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  ll a;
-  double b;
-  cin >> a >> b;
-  cout << (a * (ll)(b * 100 + 0.5)) / 100 << endl;
+  int l, r, d;
+  cin >> l >> r >> d;
+  int ans = 0;
+  for(int i=l; i<=r; i++) {
+    if(i%d == 0) ans++;
+  }
+  cout << ans << endl;
   return 0;
 }
