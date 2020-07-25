@@ -9,18 +9,13 @@ int main() {
   int n;
   cin >> n;
   vector<int> p(n);
-  vector<int> q(n);
   rep(i, n) cin >> p[i];
-  rep(i, n) cin >> q[i];
-  vector<int> a(n);
-  rep(i, n) a[i] = i+1;
-  map<vector<int>, int> mp;
-  do {
-    mp[a] = mp.size();
+  int ans = 0;
+  int m = INF;
+  rep(i, n) {
+    m = min(m, p[i]);
+    if(m >= p[i]) ans++;
   }
-  while (next_permutation(a.begin(), a.end()));
-
-  int ans = abs(mp[p] - mp[q]);
   cout << ans << endl;
   return 0;
 }

@@ -10,11 +10,12 @@ int main() {
   cin >> n;
   vector<int> p(n);
   rep(i, n) cin >> p[i];
+
   int ans = 0;
   int m = INF;
   rep(i, n) {
     m = min(m, p[i]);
-    if(m >= p[i]) ans++;
+    if(p[i] == m) ans++;
   }
   cout << ans << endl;
   return 0;

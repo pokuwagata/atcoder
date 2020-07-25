@@ -15,10 +15,9 @@ int main() {
   vector<int> a(n);
   rep(i, n) a[i] = i+1;
   map<vector<int>, int> mp;
-  do {
-    mp[a] = mp.size();
-  }
-  while (next_permutation(a.begin(), a.end()));
+  do{
+    mp[a]=mp.size();
+  } while(next_permutation(a.begin(), a.end()));
 
   int ans = abs(mp[p] - mp[q]);
   cout << ans << endl;

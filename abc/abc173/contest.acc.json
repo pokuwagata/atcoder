@@ -37,7 +37,10 @@
       "id": "abc173_d",
       "label": "D",
       "title": "Chat in a Circle",
-      "url": "https://atcoder.jp/contests/abc173/tasks/abc173_d"
+      "url": "https://atcoder.jp/contests/abc173/tasks/abc173_d",
+      "directory": {
+        "path": "d"
+      }
     },
     {
       "id": "abc173_e",

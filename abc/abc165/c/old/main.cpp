@@ -6,18 +6,18 @@ using ll = long long;
 int INF = 1001001001;
 
 int n, m, q;
-vector<int> a, b, c, d;
 int ans = 0;
+vector<int> a, b, c, d;
 
 void dfs(vector<int> A) {
-  if(A.size() == n + 1) {
-    int tot = 0;
+  if(A.size() == n+1) {
+    int sum = 0;
     rep(i, q) {
-      if(A[b[i]] - A[a[i]] == c[i]) {
-        tot += d[i];
+      if(A[b[i]]-A[a[i]] == c[i]) {
+        sum += d[i];
       }
     }
-    ans = max(tot, ans);
+    ans = max(sum, ans);
     return;
   }
   A.push_back(A.back());
@@ -32,7 +32,7 @@ int main() {
   a = b = c = d = vector<int>(q);
   rep(i, q) {
     cin >> a[i] >> b[i] >> c[i] >> d[i];
-  }
+  }  
   dfs(vector<int>(1,1));
   cout << ans << endl;
   return 0;

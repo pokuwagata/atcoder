@@ -8,19 +8,21 @@ int INF = 1001001001;
 int main() {
   int n;
   cin >> n;
-  vector<int> p(n);
-  vector<int> q(n);
-  rep(i, n) cin >> p[i];
-  rep(i, n) cin >> q[i];
   vector<int> a(n);
-  rep(i, n) a[i] = i+1;
-  map<vector<int>, int> mp;
-  do {
-    mp[a] = mp.size();
+  rep(i, n) cin >> a[i];
+  sort(a.rbegin(), a.rend());
+  int t = n -1;
+  ll ans = 0;
+  rep(i, n) {
+    int lim = 2;
+    if(i == 0) lim = 1;
+    rep(j, lim) {
+      if(t > 0) {
+        ans += a[i];
+        t--;
+      }
+    }
   }
-  while (next_permutation(a.begin(), a.end()));
-
-  int ans = abs(mp[p] - mp[q]);
   cout << ans << endl;
   return 0;
 }
