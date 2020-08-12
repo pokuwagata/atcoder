@@ -5,18 +5,19 @@ using namespace std;
 using ll = long long;
 int INF = 1001001001;
 
-ll g(ll n) {
-  return n*(n+1)/2;
-}
-
 int main() {
   int n;
   cin >> n;
+  vector<int> d(n+1);
+  for(int i=1; i<=n; i++) {
+    for(int j=i; j<=n; j+=i) {
+      d[j]++;
+    }
+  }
   ll ans = 0;
-  for(int i=1;i<=n;i++) {
-    ans += i * g(n/i);
+  for(int i=1; i<=n; i++) {
+    ans += (ll)i*d[i];
   }
   cout << ans << endl;
-  cout << g(1e7) << endl;
   return 0;
 }

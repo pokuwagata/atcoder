@@ -5,20 +5,24 @@ using namespace std;
 using ll = long long;
 int INF = 1001001001;
 
-int ans = 0;
-int n;
-
-void dfs(int x, int use) {
-  if(x >= n) return;
-  if(use == 0b111) ans++;
-  dfs(10*x+3, use | 0b001);
-  dfs(10*x+5, use | 0b010);
-  dfs(10*x+7, use | 0b100);
-}
-
 int main() {
+  int n;
   cin >> n;
-  dfs(0, 0b000);
+  string c;
+  cin >> c;
+  int r, w;
+  r = w = 0;
+  rep(i, n) {
+    if(c[i] == 'R') r++;
+  }
+  int ans = max(r,w);
+  rep(i, n) {
+    if(c[i] == 'R') r--;
+    else w++;
+    int m = max(r, w);
+    ans = min(ans, m);
+  }
   cout << ans << endl;
+
   return 0;
 }

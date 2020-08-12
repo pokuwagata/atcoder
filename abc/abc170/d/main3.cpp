@@ -10,9 +10,21 @@ int main() {
   cin >> n;
   vector<int> a(n);
   rep(i, n) cin >> a[i];
-  set<int> s(a.begin(), a.end());
-  if(s.size() == a.size()) cout << "YES" << endl;
-  else cout << "NO" << endl;
-
+  int m = 1000005;
+  vector<int> cnt(m);
+  for(int x :a) {
+    if(cnt[x] != 0) {
+      cnt[x] = 2;
+      continue;
+    }
+    for(int i=x; i<m; i+=x) {
+      cnt[i]++;
+    }
+  }
+  int ans = 0;
+  for(int x :a) {
+    if(cnt[x] == 1) ans++; 
+  }
+  cout << ans << endl;
   return 0;
 }

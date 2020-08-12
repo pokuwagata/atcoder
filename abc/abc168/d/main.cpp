@@ -5,41 +5,43 @@ using namespace std;
 using ll = long long;
 int INF = 1001001001;
 
-vector<int> to[200005];
-
 int main() {
   int n, m;
   cin >> n >> m;
+  vector<vector<int>> g(n);
   rep(i, m) {
     int a, b;
     cin >> a >> b;
-    a--;b--;
-    to[a].push_back(b);
-    to[b].push_back(a);
+    a--; b--;
+    g[a].push_back(b);
+    g[b].push_back(a);
   }
-
-  vector<int> dist(n, INF);
-  vector<int> prev(n);
   queue<int> q;
   q.push(0);
-
+  vector<int> d(n, -1);
+  vector<int> prev(n);
+  d[0] = 0;
   while(!q.empty()) {
     int v = q.front(); q.pop();
-    for(int u : to[v]) {
-      if(dist[u] != INF) {
-        continue;
-      }
-      prev[u] = v;
-      dist[u] = dist[v] + 1;
-      q.push(u);
+    for(int nv : g[v]) {
+      if(d[nv] != -1) continue;
+      prev[nv] = v;
+      d[nv] = d[v] + 1;
+      q.push(nv);
     }
   }
-  cout << "Yes" << endl;
+  bool ok = true;
   rep(i, n) {
-    if(i==0) continue;
-    int ans = prev[i];
-    ans++;
-    cout << ans << endl;
+    if(d[i] == -1) ok = false;
+  }
+  if(ok) {
+    cout << "Yes" << endl;
+  } else {
+    cout << "No" << endl;
+  }
+  rep(i, n) {
+    if(i == 0) continue;
+    cout << prev[i]+1 << endl;
   }
   return 0;
 }

@@ -6,13 +6,12 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i, n) cin >> a[i];
-  set<int> s(a.begin(), a.end());
-  if(s.size() == a.size()) cout << "YES" << endl;
-  else cout << "NO" << endl;
-
+  string s;
+  cin >> s;
+  if(s == "a") {
+    cout << -1 << endl;
+  } else {
+    cout << 'a' << endl;
+  }
   return 0;
 }

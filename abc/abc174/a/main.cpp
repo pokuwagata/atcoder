@@ -6,13 +6,8 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i, n) cin >> a[i];
-  set<int> s(a.begin(), a.end());
-  if(s.size() == a.size()) cout << "YES" << endl;
-  else cout << "NO" << endl;
-
+  int x;
+  cin >> x;
+  cout << ((x >=30) ? "Yes" : "No" )<< endl;
   return 0;
 }

@@ -6,13 +6,14 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  int n;
-  cin >> n;
+  int n, k;
+  cin >> n >> k;
   vector<int> a(n);
   rep(i, n) cin >> a[i];
-  set<int> s(a.begin(), a.end());
-  if(s.size() == a.size()) cout << "YES" << endl;
-  else cout << "NO" << endl;
-
+  rep(i, n) {
+    if(i < k) continue;
+    if(a[i-k] < a[i]) cout << "Yes" << endl;
+    else cout << "No" <<endl;
+  }
   return 0;
 }

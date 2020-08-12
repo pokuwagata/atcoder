@@ -5,20 +5,18 @@ using namespace std;
 using ll = long long;
 int INF = 1001001001;
 
-int ans = 0;
-int n;
-
-void dfs(int x, int use) {
-  if(x >= n) return;
-  if(use == 0b111) ans++;
-  dfs(10*x+3, use | 0b001);
-  dfs(10*x+5, use | 0b010);
-  dfs(10*x+7, use | 0b100);
+ll g(ll n) {
+  return n*(n+1)/2;
 }
 
 int main() {
+  int n;
   cin >> n;
-  dfs(0, 0b000);
+  ll ans = 0;
+  for(int i=1;i<=n;i++) {
+    ans += i * g(n/i);
+  }
   cout << ans << endl;
+  cout << g(1e7) << endl;
   return 0;
 }
