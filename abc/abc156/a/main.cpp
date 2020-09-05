@@ -6,13 +6,10 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  int n; int k;
-  cin >> n >> k;
-  int ans = 0;
-  while(n) {
-    n /= k;
-    ans++;
-  }
+  int n, r;
+  cin >> n >> r;
+  int ans = r;
+  if(n < 10) ans += 100 * (10 - n);
   cout << ans << endl;
   return 0;
 }

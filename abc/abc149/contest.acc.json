@@ -9,7 +9,10 @@
       "id": "abc149_a",
       "label": "A",
       "title": "Strings",
-      "url": "https://atcoder.jp/contests/abc149/tasks/abc149_a"
+      "url": "https://atcoder.jp/contests/abc149/tasks/abc149_a",
+      "directory": {
+        "path": "a"
+      }
     },
     {
       "id": "abc149_b",

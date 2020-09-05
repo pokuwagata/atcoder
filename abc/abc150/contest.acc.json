@@ -9,7 +9,10 @@
       "id": "abc150_a",
       "label": "A",
       "title": "500 Yen Coins",
-      "url": "https://atcoder.jp/contests/abc150/tasks/abc150_a"
+      "url": "https://atcoder.jp/contests/abc150/tasks/abc150_a",
+      "directory": {
+        "path": "a"
+      }
     },
     {
       "id": "abc150_b",

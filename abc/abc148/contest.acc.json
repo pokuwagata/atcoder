@@ -9,7 +9,10 @@
       "id": "abc148_a",
       "label": "A",
       "title": "Round One",
-      "url": "https://atcoder.jp/contests/abc148/tasks/abc148_a"
+      "url": "https://atcoder.jp/contests/abc148/tasks/abc148_a",
+      "directory": {
+        "path": "a"
+      }
     },
     {
       "id": "abc148_b",

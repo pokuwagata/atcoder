@@ -9,7 +9,10 @@
       "id": "abc147_a",
       "label": "A",
       "title": "Blackjack",
-      "url": "https://atcoder.jp/contests/abc147/tasks/abc147_a"
+      "url": "https://atcoder.jp/contests/abc147/tasks/abc147_a",
+      "directory": {
+        "path": "a"
+      }
     },
     {
       "id": "abc147_b",

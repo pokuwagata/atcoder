@@ -9,22 +9,10 @@ int main() {
   int n;
   string s;
   cin >> n >> s;
-  if(s.find("ABC") == string::npos) {
-    cout << 0 << endl;
-    return 0;
-  }
-
   int ans = 0;
-  while (1)
-  {
-    int start = s.find("ABC");
-    int end = s.size();
-    if(start == string::npos) break;
-    s = s.substr(start+3, end);
-    cout << s << endl;
-    ans++;
+  rep(i, n-2) {
+    if(s.substr(i,3) == "ABC") ans++;
   }
   cout << ans << endl;
-  
   return 0;
 }
