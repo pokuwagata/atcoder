@@ -8,18 +8,19 @@ int INF = 1001001001;
 int main() {
   int n;
   cin >> n;
-  vector<int> p(n);
-  rep(i, n) cin >> p[i];
-  vector<int> sp(n) = p;
-  sort(sp.begin(), sp.end());
-  int cnt = 0;
+  vector<int> a(n), b(n+1);
+  rep(i, n+1) cin >> a[i];
+  rep(i, n) cin >> b[i];
+
+  ll ans = 0;
   rep(i, n) {
-    if(p[i] != sp[i]) cnt++;
-    if(cnt >=2) {
-      cout << "No" << endl;
-      return 0;
-    }
+    int d1 = min(a[i], b[i]);
+    ans += d1;
+    int d2 = min(a[i+1], b[i] - d1);
+    ans += d2;
+    a[i+1] -= d2;
+    b[i] -= d1;
   }
-  cout << "Yes" << endl;
+  cout << ans << endl;
   return 0;
 }

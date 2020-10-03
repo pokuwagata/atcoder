@@ -8,14 +8,19 @@ int INF = 1001001001;
 int main() {
   int n;
   cin >> n;
-  vector<int> p(n);
-  rep(i, n) cin >> p[i];
-  vector<int> sp(n) = p;
-  sort(sp.begin(), sp.end());
-  int cnt = 0;
-  rep(i, n) {
-    if(p[i] != sp[i]) cnt++;
-    if(cnt >=2) {
+  vector<int> h(n);
+  rep(i, n) cin >> h[i];
+  int m = INF;
+  rep(i, n-1) {
+    if(h[i] <= h[i+1]) {
+      m = h[i];
+      continue;
+    }
+    else if(h[i] - 1 >=0 && h[i] - 1 <= h[i+1] && m <= h[i] - 1) {
+      m = h[i] - 1;
+      continue;
+    }
+    else {
       cout << "No" << endl;
       return 0;
     }

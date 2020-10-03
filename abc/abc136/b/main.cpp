@@ -8,18 +8,12 @@ int INF = 1001001001;
 int main() {
   int n;
   cin >> n;
-  vector<int> p(n);
-  rep(i, n) cin >> p[i];
-  vector<int> sp(n) = p;
-  sort(sp.begin(), sp.end());
-  int cnt = 0;
-  rep(i, n) {
-    if(p[i] != sp[i]) cnt++;
-    if(cnt >=2) {
-      cout << "No" << endl;
-      return 0;
-    }
+  int ans = 0;
+  for(int i=1; i<=n; i++) {
+    string s = to_string(i);
+    int k = s.size();
+    if(k%2 != 0) ans++;
   }
-  cout << "Yes" << endl;
+  cout << ans << endl;
   return 0;
 }

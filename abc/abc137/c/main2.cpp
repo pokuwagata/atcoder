@@ -8,18 +8,18 @@ int INF = 1001001001;
 int main() {
   int n;
   cin >> n;
-  vector<int> p(n);
-  rep(i, n) cin >> p[i];
-  vector<int> sp(n) = p;
-  sort(sp.begin(), sp.end());
-  int cnt = 0;
+  map<string, int> mp;
   rep(i, n) {
-    if(p[i] != sp[i]) cnt++;
-    if(cnt >=2) {
-      cout << "No" << endl;
-      return 0;
-    }
+    string s;
+    cin >> s;
+    sort(s.begin(), s.end());
+    mp[s]++;
   }
-  cout << "Yes" << endl;
+  ll ans = 0;
+  for(auto &p : mp) {
+    int s = p.second;
+    ans += (ll)s * (s-1) / 2;
+  }
+  cout << ans << endl;
   return 0;
 }
