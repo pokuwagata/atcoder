@@ -6,12 +6,9 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  char s, t;
-  cin >> s >> t;
-  if(s == 'Y') {
-    printf("%c", t - 32);
-  } else {
-    cout << t << endl;
-  }
+  int x, a;
+  cin >> x >> a;
+  if(x < a) cout << 0 << endl;
+  else cout << 10 << endl;
   return 0;
 }

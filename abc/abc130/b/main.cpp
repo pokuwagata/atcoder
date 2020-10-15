@@ -6,12 +6,18 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  char s, t;
-  cin >> s >> t;
-  if(s == 'Y') {
-    printf("%c", t - 32);
-  } else {
-    cout << t << endl;
+  int n, x;
+  cin >> n >> x;
+  vector<int> l(n);
+  rep(i, n) {
+    cin >> l[i];
   }
+  int ans = 1;
+  int d = 0;
+  rep(i, n) {
+    d += l[i];
+    if(d <= x) ans++;
+  }
+  cout << ans << endl;
   return 0;
 }

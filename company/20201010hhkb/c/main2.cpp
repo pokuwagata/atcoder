@@ -10,16 +10,22 @@ int main() {
   cin >> n;
   vector<int> p(n);
   rep(i, n) cin >> p[i];
-  vector<int> sp(n) = p;
-  sort(sp.begin(), sp.end());
-  int cnt = 0;
-  rep(i, n) {
-    if(p[i] != sp[i]) cnt++;
-    if(cnt >=2) {
-      cout << "No" << endl;
-      return 0;
+  sort(p.begin(), p.end());
+  deque<int> q;
+  rep(i, n) q.push(p[i]);
+  vector<int> ans(n);
+  while(q.empty()) {
+    if(q.front() == 0) {
+      int v = q.back();
+      ans[q.size()-1] = v + 1;
+      q.pop_back();
+    } else {
+      int v = q.front();
+      ans[q.size()-1] = v - 1;
+      q.pop_front();
     }
+
   }
-  cout << "Yes" << endl;
+
   return 0;
 }

@@ -6,12 +6,15 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  char s, t;
-  cin >> s >> t;
-  if(s == 'Y') {
-    printf("%c", t - 32);
-  } else {
-    cout << t << endl;
+  int n;
+  cin >> n;
+  if(n == 1) return 0;
+  for(int i=2; i*i<=n; i++) {
+    if(n % i == 0) {
+      puts("No");
+      return 0;
+    }
   }
+  puts("Yes");
   return 0;
 }

@@ -6,12 +6,15 @@ using ll = long long;
 int INF = 1001001001;
 
 int main() {
-  char s, t;
-  cin >> s >> t;
-  if(s == 'Y') {
-    printf("%c", t - 32);
-  } else {
-    cout << t << endl;
+  int n;
+  cin >> n;
+  int keta = 0;
+  while(n) {
+    keta++;
+    n /= 10;
+    // n /= 10;
+    // if(n) keta++;
   }
+  cout << keta << endl;
   return 0;
 }
